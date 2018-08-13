@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.info.learn</groupId>
-	<artifactId>MyFirstSpringBoot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>SpringBootCRUDCollections</artifactId>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>MyFirstSpringBoot</name>
-	<description>Demo project for Spring Boot</description>
+	<name>SpringBootCRUDCollections</name>
+	<description>Spring Boot Demo project using collections</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
