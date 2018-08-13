@@ -5,6 +5,8 @@ import com.info.learn.MyFirstSPringBoot.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/app")
 public class BookController {
@@ -24,5 +26,18 @@ public class BookController {
     @RequestMapping(value = "/book/{bookId}",method = RequestMethod.GET)
     public Book getBook(@PathVariable(value = "bookId") Integer bookId){
         return  service.getBook(bookId);
+    }
+
+    @GetMapping(value = "/book")
+    public List<Book> getAllBooks(){
+        return  service.getAllBooks();
+    }
+    @RequestMapping(value = "/book",method = RequestMethod.PUT)
+    public Book updateBook(@RequestBody Book book){
+        return  service.updateBook(book);
+    }
+    @DeleteMapping(value = "/book/{bookId}")
+    public void deleteBook(@PathVariable(value = "bookId") Integer bookId){
+        service.deleteBook(bookId);
     }
    }
