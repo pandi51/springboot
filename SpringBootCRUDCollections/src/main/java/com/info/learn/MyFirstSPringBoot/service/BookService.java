@@ -5,6 +5,8 @@ import com.info.learn.MyFirstSPringBoot.entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -21,7 +23,17 @@ public class BookService {
 
 
     public Book getBook(Integer id) {
-       bookDao.findById(id);
-        return new Book();
+        return bookDao.findById(id);
+    }
+    public List<Book> getAllBooks(){
+        return bookDao.findAll();
+    }
+
+    public Book updateBook(Book book) {
+        return bookDao.update(book);
+    }
+
+    public void deleteBook(Integer bookId) {
+        bookDao.delete(bookId);
     }
 }

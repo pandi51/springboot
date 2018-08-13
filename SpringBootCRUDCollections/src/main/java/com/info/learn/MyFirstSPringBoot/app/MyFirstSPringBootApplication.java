@@ -14,9 +14,8 @@ public class MyFirstSPringBootApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext applicationContext =  SpringApplication.run(MyFirstSPringBootApplication.class, args);
-        BookService appService= applicationContext.getBean("appService",BookService.class);
-        Book book = new Book();
-        book.setName("Raghav");
+        BookService appService= applicationContext.getBean("bookService",BookService.class);
+        Book book = new Book(1,"Maths");
         appService.createBook(book);
 		System.out.println("Started Application...");
 	}

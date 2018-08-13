@@ -1,23 +1,26 @@
 package com.info.learn.MyFirstSPringBoot.entity;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "book")
-public class Book {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="book_id")
+import java.io.Serializable;
+
+public class Book implements Serializable {
+
     private int id;
 
 
-    @Column(name="book_name")
     private String name;
+
+    public Book(@JsonProperty("id")int id, @JsonProperty("name")String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;
     }
+
 
     public void setId(int id) {
         this.id = id;
