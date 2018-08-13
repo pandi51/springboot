@@ -1,0 +1,27 @@
+package com.info.learn.MyFirstSPringBoot.service;
+
+import com.info.learn.MyFirstSPringBoot.dao.BookDao;
+import com.info.learn.MyFirstSPringBoot.entity.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BookService {
+
+    @Autowired
+    private BookDao bookDao;
+
+    public String greet() {
+        return "Hello";
+    }
+
+    public Book createBook(Book book) {
+        return bookDao.save(book);
+    }
+
+
+    public Book getBook(Integer id) {
+       bookDao.findById(id);
+        return new Book();
+    }
+}
