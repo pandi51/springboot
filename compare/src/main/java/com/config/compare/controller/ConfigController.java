@@ -44,11 +44,16 @@ public class ConfigController {
 					sb.append("********************* Start ***************");
 					sb.append("Comparing " + mainPath + " with " + path + " \n");
 
-					String missing = mainProps.entrySet().stream()
-							.filter(mp -> null == props.getProperty(mp.getKey().toString(), null))
-							.map(mp -> mp.getKey().toString()).collect(Collectors.joining(","));
+					//String missing = mainProps.entrySet().stream()
+					//		.filter(mp -> null == props.getProperty(mp.getKey().toString(), null))
+					//		.map(mp -> mp.getKey().toString()).collect(Collectors.joining(","));
+ List<Strong> ms = new ArrayList<Strong>() ;
+for(Map.Entry<Object, Object> mp: mainProps.entrySet()) {
+  if( null== props.getProperty(mp.getKey().toString(), null)) {
+      ms.add(mp.getKey().toString()) ;
+}}
 
-					sb.append("missing properties: " + missing + " \n");
+					sb.append("missing properties: " + Strings.join(ms.iterator(),',')+ " \n");
 					sb.append("************** END *************");
 				}
 			}
