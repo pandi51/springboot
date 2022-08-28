@@ -1,4 +1,4 @@
-package com.websocket.server.controller;
+package com.springboot.websocketclient.controller;
 
 import java.io.IOException;
 
@@ -7,23 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.websocket.server.component.MyWebSocketHandler;
+import com.springboot.websocketclient.component.WebSocketClient;
 
 @RestController
-public class WebSocketController {
+public class MessageRestController {
 
 	@Autowired
-	MyWebSocketHandler handler;
+	WebSocketClient client;
 
-	@GetMapping(path = "/wbsocket/server")
-	public String websocketController() {
-		return "Websocket server !!!";
-	}
-
-	@GetMapping("/websocket-server/send/{message}")
+	@GetMapping("/websocket-client/send/{message}")
 	public String sendMessage(@PathVariable("message") String msg) throws IOException {
-		handler.sendMessage(msg);
+		client.sendMessage(msg);
 		return "success";
 	}
-
 }
